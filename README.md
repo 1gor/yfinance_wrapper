@@ -41,3 +41,14 @@ ticker.history(period: "max", interval: "1d")
 # ...
 # }
 ```
+
+# Configuration
+
+```ruby
+# Configure yfinance, for example set proxy globally
+YfinanceWrapper.set_config(proxy: "http://user:password@proxy_host:port")
+
+# Now proxy will be applied to requests
+ticker = YfinanceWrapper::Ticker.new('AAPL')
+history = ticker.history(period: "1d")
+```
