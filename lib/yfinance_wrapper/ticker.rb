@@ -8,8 +8,8 @@ require "time"
 
 module YfinanceWrapper
   class Ticker
-    def initialize(symbol)
-      @ticker = YfinanceWrapper.yf.Ticker.new(symbol)
+    def initialize(symbol, session: nil)
+      @ticker = YfinanceWrapper.yf.Ticker.new(symbol, session: session)
     end
 
     def info
