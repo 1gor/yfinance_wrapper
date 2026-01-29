@@ -52,3 +52,14 @@ YfinanceWrapper.set_config(proxy: "http://user:password@proxy_host:port")
 ticker = YfinanceWrapper::Ticker.new('AAPL')
 history = ticker.history(period: "1d")
 ```
+
+# Session rotation
+
+By default `yfinance` uses a session impersonating browser, but does not rotate them. You can pass new session when instantiating ticker. 
+
+```ruby
+curl_cffi = PyCall.import_module("curl_cffi.requests")
+session = curl_cffi.Session.new(impersonate: "chrome")
+ticker = YfinanceWrapper::Ticker.new(symbol, session: session)
+
+```
